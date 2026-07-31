@@ -10,6 +10,6 @@ provider "aws" {
  region = "us-east-1"
 }
 resource "aws_instance" "free_tier" {
- ami = "ami-053b0d53c279acc90" # Ubuntu Server 22.04 LTS
- instance_type = "t2.micro" # Free Tier eligible
+ ami = "ami-02b64aa047cb5edf5" # Amazon Linux Server 2023 LTS
+ instance_type = "t3.micro" # Free Tier eligible
 }
