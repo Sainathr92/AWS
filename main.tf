@@ -30,6 +30,9 @@ resource "aws_instance" "free_tier" {
   ami                    = "ami-02b64aa047cb5edf5" # Amazon Linux Server 2023 LTS
   instance_type          = "t3.micro"              # Free Tier eligible
   vpc_security_group_ids = [aws_security_group.allow_ssh_http.id]
+  lifecycle {
+    prevent_destroy = true
+  }
 }
 
 resource "aws_s3_bucket" "example_bucket" {
