@@ -7,7 +7,7 @@ resource "aws_security_group" "allow_ssh_http" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["192.168.1.0/24"]
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   ingress {
@@ -15,7 +15,7 @@ resource "aws_security_group" "allow_ssh_http" {
     from_port   = 80
     to_port     = 80
     protocol    = "tcp"
-    cidr_blocks = ["192.168.1.0/24"]
+    cidr_blocks = ["0.0.0.0/0"]
   }
 
   egress {
@@ -27,7 +27,7 @@ resource "aws_security_group" "allow_ssh_http" {
 }
 
 resource "aws_instance" "free_tier" {
-  ami                    = "ami-02b64aa047cb5edf5" # Amazon Linux Server 2023 LTS
+  ami                    = "ami-00adafae70b8029d8" # Amazon Linux Server 2023 LTS
   instance_type          = "t3.micro"              # Free Tier eligible
   vpc_security_group_ids = [aws_security_group.allow_ssh_http.id]
   lifecycle {
@@ -36,7 +36,7 @@ resource "aws_instance" "free_tier" {
 }
 
 resource "aws_s3_bucket" "example_bucket" {
-  bucket = "saie-demo-bucket-20260801"
+  bucket = "sai-demo-bucket-20260801"
 
   tags = {
     Name        = "example-bucket"
