@@ -36,7 +36,7 @@ resource "aws_instance" "free_tier" {
 }
 
 resource "aws_s3_bucket" "example_bucket" {
-  bucket = "sai-demo-bucket-20260801"
+  bucket = "sai-demo2-bucket-20260801"
 
   tags = {
     Name        = "example-bucket"
