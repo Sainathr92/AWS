@@ -27,7 +27,7 @@ resource "aws_security_group" "allow_ssh_http" {
 }
 
 resource "aws_instance" "free_tier" {
-  ami                    = "ami-00adafae70b8029d8" # Redhat Linux Server 2023 LTS
+  ami                    = "ami-008f67e1a087a7449" # Redhat Linux Server 2023 LTS
   instance_type          = "t3.micro"              # Free Tier eligible
   vpc_security_group_ids = [aws_security_group.allow_ssh_http.id]
   lifecycle {
